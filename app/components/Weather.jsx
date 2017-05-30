@@ -66,23 +66,23 @@ var Weather = React.createClass({
 		debugger;
 		function loading(){
 			if(cityNotFound){
-				return <h3>cityNotFound</h3>
+				return <h3 className="text-center"> sorry city not found</h3>
 			}
 			if(!isLoading){
 				return <Mensaje entrada={ciudad} temp={temp} contador={contador}/>
 			}else{
 				if(contador==0) {
-					return <h3>ingresa ciudad</h3>
+					return <p className="text-center">BIENVENIDO!  INGRESE UNA CIUDAD</p>
 				}else{
 					if(temp)
-					return <h3>loading...</h3>
+					return <h3 className="text-center">loading...</h3>
 				}
 			}
 		}
 
 		return(
 			<div>
-				<h3>Weather component </h3>
+				<h1 className="text-center">Get Weather </h1>
 				<CapEventos NuevaCiudad={this.RefrescaCiudad} contador={contador}/>
 				{loading()}
 			</div>

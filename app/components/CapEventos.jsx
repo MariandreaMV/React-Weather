@@ -19,12 +19,12 @@ var CapEventos=React.createClass(
 
 	render: function(){
 		return(
-			<form onSubmit={this.capturaNombre}>
-				<div>
+			<form onSubmit={this.capturaNombre} >
+				<div >
 					<input type="text" ref="nombre" placeholder="ingrese aqui..."/>
 				</div>
 				<div>	
-					<button>cargar </button>
+					<button className="hollow button expanded" href="#">cargar </button>
 				</div>
 			</form>
 			);
@@ -32,3 +32,21 @@ var CapEventos=React.createClass(
 });
 
 module.exports= CapEventos;
+
+/*
+<form>
+  <div class="row">
+    <div class="medium-6 columns">
+      <label>Input Label
+        <input type="text" placeholder=".medium-6.columns">
+      </label>
+    </div>
+    <div class="medium-6 columns">
+      <label>Input Label
+        <input type="text" placeholder=".medium-6.columns">
+      </label>
+    </div>
+  </div>
+</form>
+
+*/
