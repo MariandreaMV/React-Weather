@@ -1,0 +1,21 @@
+.page-title{
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}
+
+input [type=search]{
+	box-shadow: none;
+}
+
+.navegation{
+	background-color: black;
+	color: white;
+	font-family: inherit;
+}
+
+.otraClase{
+	color: blue;
+	background-color: black;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
+}

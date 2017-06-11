@@ -21,7 +21,7 @@ var CapEventos=React.createClass(
 		return(
 			<form onSubmit={this.capturaNombre} >
 				<div >
-					<input type="text" ref="nombre" placeholder="ingrese aqui..."/>
+					<input type="search" ref="nombre" placeholder="Search"/>
 				</div>
 				<div>	
 					<button className="hollow button expanded" href="#">cargar </button>
