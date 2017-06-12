@@ -32,26 +32,56 @@ var Weather = React.createClass({
 		}
 	},
 
-	RefrescaCiudad:function(ciudad,contador){
+	RefrescaCiudad: function(ciudad,contador){
 		
 		var that =this;
 
-		this.setState({ isLoading:true, cityNotFound:false, errorMessage:undefined});
+		this.setState({
+			isLoading:true,
+			cityNotFound:false,
+			errorMessage:undefined,
+			location:undefined,
+			temp:undefined
+		});
 
 		openWeatherMap.getTemp(ciudad).then(function(temp){
+
 			that.setState( {
 			 ciudad: ciudad ,
 			 temp: temp,
 			 contador: contador,
 			 isLoading: false
 			});
+
 		},function(e){
+
 			that.setState({
 				cityNotFound:true,
 				isLoading:false,
-				errorMessage:e.message
+				errorMessage:'city not found'
 			});
+
 		});
+	},
+
+	componentDidMount: function(){
+
+		var location = this.props.location.query.location;
+
+		if(location && location.length>0){
+			this.RefrescaCiudad(location,2);
+			window.location.hash= '#/';
+		}
+	},
+
+	componentWillReceiveProps: function(newProps){
+
+		var location = newProps.location.query.location;
+
+		if(location && location.length>0){
+			this.RefrescaCiudad(location,0);
+			window.location.hash= '#/';
+		}	
 	},
 
 	render: function(){

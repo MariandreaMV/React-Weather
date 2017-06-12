@@ -10,13 +10,15 @@ module.exports = {
 		var construccionUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
 
 		return axios.get(construccionUrl).then(function(res){
-				// console.log(res);
-				if(res.data.cod&& res.data.message){
-					throw new Error(res.data.message);
+				
+				if(res.data.cod && res.data.message){
+					//console.log(res);
+					throw new Error (res.data.message);
 				}else{
-				return res.data.main.temp;
+					return res.data.main.temp;
 				}
 			},function (res){
+			//console.log(res);
 				throw new Error (res.data.message);
 			});
 	}

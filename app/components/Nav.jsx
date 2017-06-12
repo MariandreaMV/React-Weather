@@ -5,7 +5,13 @@ var Nav = React.createClass({
 
 	onSearch: function(e){
 		e.preventDefault();
-		alert('aun no lo cargo');
+		
+		var search = this.refs.city.value;
+		//alert(search);
+		if(search.length>0){
+		window.location.hash= '#/?location='+search;
+		this.refs.city.value='';
+		}
 	},
 	render: function (){
 	return (
@@ -33,12 +39,12 @@ var Nav = React.createClass({
 				<form onSubmit={this.onSearch}>
 					  <ul className="menu navegation">
 					     <li className="navegation">
-					     	<input type="search" placeholder="Search"/>
+					     	<input type="search" ref="city" placeholder="Search"/>
 					     </li>
 					     <li className="navegation">
 					     	<button type="submit" className="button">Search</button>
 					     </li>
-					   </ul>
+					  </ul>
 				</form>
 			</div>
 		</div>
